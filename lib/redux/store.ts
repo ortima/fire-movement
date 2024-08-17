@@ -1,9 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
+import initialState from "./mock-data";
 import calculatorReducer from "./slices/calculator";
 
 export const store = configureStore({
   reducer: {
     calculator: calculatorReducer,
+  },
+  preloadedState: {
+    calculator: initialState,
   },
 });
 
