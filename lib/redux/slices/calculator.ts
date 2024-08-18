@@ -1,9 +1,9 @@
-import { randomUUID } from "crypto";
 import { CalculatorT, EntryT } from "@/app/types/calculator";
 import { calculateRemainings } from "@/utils/calculate-remainings";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { transliterate as tr } from "transliteration";
+import { v4 as uuidv4 } from "uuid";
 
 const initialState: CalculatorT = {
   income: [],
@@ -27,14 +27,14 @@ export const calculatorSlice = createSlice({
       state,
       action: PayloadAction<{
         category: keyof CalculatorT;
-        entry: EntryT;
+        entry: Omit<EntryT, "id">;
       }>,
     ) => {
       const { category, entry } = action.payload;
 
       if (Array.isArray(state[category])) {
         state[category].push({
-          id: randomUUID(),
+          id: uuidv4(),
           type: entry.type,
           name: tr(entry.name),
           value: entry.value,
