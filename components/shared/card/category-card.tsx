@@ -7,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { AddEntryModal } from "../addEntryModal/addEntryModal";
 import { Entry } from "../entry/entry";
 
 interface CategoryCardProps {
@@ -35,8 +36,7 @@ export const CategoryCard = ({ category, entries }: CategoryCardProps) => {
         )}
       </CardContent>
       <CardFooter>
-        <button className="text-blue-500">Edit</button>
-        <button className="ml-4 text-red-500">Delete</button>
+        <AddEntryModal category={category} />
       </CardFooter>
     </Card>
   );
