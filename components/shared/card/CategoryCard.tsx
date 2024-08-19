@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { AddEntryModal } from "../addEntryModal/addEntryModal";
-import { Entry } from "../entry/entry";
+import { Entry } from "../entry/Entry";
 
 interface CategoryCardProps {
   category: CategoryT;
